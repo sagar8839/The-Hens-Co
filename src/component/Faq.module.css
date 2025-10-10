@@ -1,0 +1,280 @@
+.faqContainer {
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #f8f9ff 0%, #fff5e6 100%);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(26, 35, 126, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.faqContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1a237e 0%, #ffa500 50%, #1a237e 100%);
+}
+
+.heading {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a237e;
+    text-transform: lowercase;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.heading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #1a237e, #ffa500);
+    border-radius: 2px;
+}
+
+.searchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.searchBar input {
+    width: 65%;
+    padding: 15px 25px;
+    border: 2px solid #ffa500;
+    border-radius: 50px;
+    outline: none;
+    font-size: 1rem;
+    background: white;
+    box-shadow: 0 5px 15px rgba(255, 165, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.searchBar input:focus {
+    border-color: #1a237e;
+    box-shadow: 0 5px 20px rgba(26, 35, 126, 0.2);
+    transform: translateY(-2px);
+}
+
+.searchBar button {
+    background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
+    border: none;
+    padding: 14px 18px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 165, 0, 0.3);
+}
+
+.searchBar button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 165, 0, 0.4);
+}
+
+.faqList {
+    text-align: left;
+    margin: 30px 0;
+}
+
+.faqItem {
+    border: 2px solid transparent;
+    border-radius: 15px;
+    margin: 15px 0;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.faqItem:hover {
+    border-color: #ffa500;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 165, 0, 0.15);
+}
+
+.faqItem::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(180deg, #1a237e 0%, #ffa500 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.faqItem:hover::before {
+    opacity: 1;
+}
+
+.question {
+    padding: 20px 25px;
+    background: linear-gradient(135deg, #f9f9f9 0%, #fff 100%);
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #1a237e;
+    font-size: 1.1rem;
+}
+
+.question:hover {
+    background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+    color: #ff8c00;
+}
+
+.question svg {
+    color: #ffa500;
+    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.faqItem:hover .question svg {
+    color: #1a237e;
+}
+
+.answer {
+    background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+    padding: 25px;
+    color: #333;
+    line-height: 1.7;
+    border-top: 1px solid #f0f0f0;
+    font-size: 1rem;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.pagination button {
+    background: transparent;
+    border: 2px solid #ffa500;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    color: #ffa500;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination button:hover {
+    background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
+    color: white;
+    transform: translateY(-2px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 165, 0, 0.3);
+}
+
+.pagination .active {
+    background: linear-gradient(135deg, #1a237e 0%, #303f9f 100%);
+    border-color: #1a237e;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(26, 35, 126, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faqContainer {
+        margin: 20px auto;
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+
+    .searchBar input {
+        width: 80%;
+        padding: 12px 20px;
+    }
+
+    .question {
+        padding: 15px 20px;
+        font-size: 1rem;
+    }
+
+    .answer {
+        padding: 20px;
+    }
+
+    .pagination button {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Loading animation for search */
+.searchBar input:focus+button {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Enhanced scrollbar for FAQ list */
+.faqList::-webkit-scrollbar {
+    width: 6px;
+}
+
+.faqList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.faqList::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #ffa500 0%, #1a237e 100%);
+    border-radius: 10px;
+}

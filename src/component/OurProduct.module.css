@@ -1,0 +1,10 @@
+.productImage {
+    width: 100vw;
+    /* full width */
+    height: 100vh;
+    /* full height */
+    object-fit: cover;
+    /* full screen cover karega */
+    display: block;
+    /* extra space remove */
+}

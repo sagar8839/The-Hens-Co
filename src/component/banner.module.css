@@ -1,0 +1,311 @@
+ .bannerContainer {
+     position: relative;
+     width: 100%;
+     height: 100vh;
+     overflow: hidden;
+ }
+
+ .backgroundSection {
+     position: relative;
+     width: 100%;
+     height: 100%;
+ }
+
+ .backgroundImage {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     filter: brightness(0.9) contrast(1.1);
+     animation: backgroundZoom 20s ease-in-out infinite;
+ }
+
+ .iconsContainer {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .iconsImage {
+     max-width: 80%;
+     max-height: 80%;
+     object-fit: contain;
+     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+     animation: floatIcons 6s ease-in-out infinite;
+     z-index: 2;
+ }
+
+ /* Floating Elements Animation */
+ .floatingElement1,
+ .floatingElement2,
+ .floatingElement3 {
+     position: absolute;
+     border-radius: 50%;
+     background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+     animation: float 8s ease-in-out infinite;
+ }
+
+ .floatingElement1 {
+     width: 100px;
+     height: 100px;
+     top: 20%;
+     left: 10%;
+     animation-delay: 0s;
+ }
+
+ .floatingElement2 {
+     width: 150px;
+     height: 150px;
+     top: 60%;
+     right: 15%;
+     animation-delay: 2s;
+ }
+
+ .floatingElement3 {
+     width: 80px;
+     height: 80px;
+     bottom: 30%;
+     left: 20%;
+     animation-delay: 4s;
+ }
+
+ /* Content Overlay */
+ .contentOverlay {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     text-align: center;
+     color: white;
+     z-index: 3;
+     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+ }
+
+ .mainTitle {
+     font-size: 4rem;
+     font-weight: 700;
+     margin-bottom: 1rem;
+     background: linear-gradient(45deg, #ffffff, #f0f0f0);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     background-clip: text;
+     animation: titleGlow 3s ease-in-out infinite alternate;
+ }
+
+ .subtitle {
+     font-size: 1.5rem;
+     margin-bottom: 2rem;
+     opacity: 0.9;
+     font-weight: 300;
+ }
+
+ .ctaButton {
+     padding: 15px 40px;
+     font-size: 1.2rem;
+     background: linear-gradient(45deg, #ff6b6b, #ffa726);
+     border: none;
+     border-radius: 50px;
+     color: white;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+     position: relative;
+     overflow: hidden;
+ }
+
+ .ctaButton:hover {
+     transform: translateY(-3px);
+     box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+ }
+
+ .ctaButton:active {
+     transform: translateY(-1px);
+ }
+
+ .ctaButton::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: -100%;
+     width: 100%;
+     height: 100%;
+     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+     transition: left 0.5s;
+ }
+
+ .ctaButton:hover::before {
+     left: 100%;
+ }
+
+ /* Dotted Line Styles - Added as requested */
+ .HomePage .intro-content-desktop .dotted-line-wrap {
+     position: absolute;
+     left: 0px;
+     top: 0px;
+     overflow-x: clip;
+     height: 100%;
+     width: 0px;
+     transition: all 1.5s ease-out;
+ }
+
+ /* Enhanced dotted line with animation */
+ .HomePage .intro-content-desktop .dotted-line-wrap.animated {
+     width: 100%;
+ }
+
+ .HomePage .intro-content-desktop .dotted-line {
+     stroke-dasharray: 5, 5;
+     stroke: #ffffff;
+     stroke-width: 2;
+     stroke-linecap: round;
+     opacity: 0.7;
+     animation: dottedLineFlow 3s linear infinite;
+ }
+
+ /* Dotted line animation */
+ @keyframes dottedLineFlow {
+     0% {
+         stroke-dashoffset: 0;
+     }
+
+     100% {
+         stroke-dashoffset: 10;
+     }
+ }
+
+ /* Optional: Create an animated entrance for the dotted line */
+ .HomePage .intro-content-desktop .dotted-line-wrap.animate-in {
+     animation: expandWidth 1.5s ease-out forwards;
+ }
+
+ @keyframes expandWidth {
+     0% {
+         width: 0px;
+     }
+
+     100% {
+         width: 100%;
+     }
+ }
+
+ /* Animations */
+ @keyframes floatIcons {
+
+     0%,
+     100% {
+         transform: translateY(0) rotate(0deg) scale(1);
+     }
+
+     25% {
+         transform: translateY(-10px) rotate(1deg) scale(1.02);
+     }
+
+     75% {
+         transform: translateY(5px) rotate(-1deg) scale(0.98);
+     }
+ }
+
+ @keyframes backgroundZoom {
+
+     0%,
+     100% {
+         transform: scale(1);
+     }
+
+     50% {
+         transform: scale(1.05);
+     }
+ }
+
+ @keyframes float {
+
+     0%,
+     100% {
+         transform: translateY(0) scale(1);
+         opacity: 0.7;
+     }
+
+     50% {
+         transform: translateY(-20px) scale(1.1);
+         opacity: 1;
+     }
+ }
+
+ @keyframes titleGlow {
+     0% {
+         filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+     }
+
+     100% {
+         filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+     }
+ }
+
+ /* Particle Effects */
+ .iconsContainer::before {
+     content: '';
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.1) 100%);
+     animation: particlePulse 4s ease-in-out infinite;
+ }
+
+ @keyframes particlePulse {
+
+     0%,
+     100% {
+         opacity: 0.3;
+         transform: scale(1);
+     }
+
+     50% {
+         opacity: 0.6;
+         transform: scale(1.1);
+     }
+ }
+
+ /* Responsive Design */
+ @media (max-width: 768px) {
+     .mainTitle {
+         font-size: 2.5rem;
+     }
+
+     .subtitle {
+         font-size: 1.2rem;
+     }
+
+     .iconsImage {
+         max-width: 90%;
+         max-height: 90%;
+     }
+
+     .ctaButton {
+         padding: 12px 30px;
+         font-size: 1rem;
+     }
+
+     /* Adjust dotted line for mobile */
+     .HomePage .intro-content-desktop .dotted-line-wrap {
+         display: none;
+         /* Hide on mobile or adjust as needed */
+     }
+ }
+
+ @media (max-width: 480px) {
+     .mainTitle {
+         font-size: 2rem;
+     }
+
+     .subtitle {
+         font-size: 1rem;
+     }
+
+     .bannerContainer {
+         height: 80vh;
+     }
+ }

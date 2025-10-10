@@ -1,0 +1,451 @@
+.teamSection {
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+.sectionHeader {
+    text-align: center;
+    padding: 100px 20px 80px;
+    position: relative;
+}
+
+.mainTitle {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientShift 6s ease infinite;
+    margin-bottom: 20px;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: #b0b0b0;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.headerAccent {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    margin: 40px auto 0;
+    border-radius: 2px;
+}
+
+.teamContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.memberRow {
+    margin-bottom: 80px;
+    position: relative;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.memberRow:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.memberContent {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    min-height: 400px;
+}
+
+.leftLayout .memberContent {
+    flex-direction: row;
+}
+
+.rightLayout .memberContent {
+    flex-direction: row-reverse;
+}
+
+.textContent {
+    flex: 1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.headerSection {
+    margin-bottom: 30px;
+}
+
+.titleWrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.titleIcon {
+    font-size: 3rem;
+    opacity: 0.9;
+    flex-shrink: 0;
+}
+
+.memberTitle {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 8px 0;
+}
+
+.memberName {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.accentLine {
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    border-radius: 2px;
+}
+
+.rightLayout .accentLine {
+    margin-left: auto;
+    background: linear-gradient(90deg, transparent, var(--accent-color));
+}
+
+.memberDescription {
+    color: #d0d0d0;
+    line-height: 1.8;
+    font-size: 1.15rem;
+    margin: 0 0 35px 0;
+    font-weight: 300;
+    max-width: 700px;
+}
+
+.expertiseContainer {
+    margin-top: 10px;
+}
+
+.expertiseTitle {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 15px 0;
+}
+
+.skillsContainer {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.skillTag {
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.skillTag:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.visualSection {
+    flex: 0 0 300px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+}
+
+.accentBar {
+    width: 6px;
+    height: 80%;
+    background: linear-gradient(to bottom, var(--accent-color), transparent);
+    border-radius: 3px;
+    position: absolute;
+}
+
+.leftLayout .accentBar {
+    left: 0;
+}
+
+.rightLayout .accentBar {
+    right: 0;
+}
+
+.achievementBadge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.achievementBadge:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.badgeIcon {
+    font-size: 2rem;
+}
+
+.badgeText {
+    font-size: 0.9rem;
+    color: #ffffff;
+    font-weight: 500;
+    text-align: center;
+}
+
+.footerNote {
+    text-align: center;
+    padding: 80px 20px 100px;
+    margin-top: 40px;
+}
+
+.footerContent {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footerContent h3 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-weight: 600;
+    background: linear-gradient(45deg, #4ecdc4, #96ceb4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.footerContent p {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+    font-weight: 300;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+}
+
+/* Animations */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.memberRow {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.memberRow:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.memberRow:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.memberRow:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.memberRow:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.memberRow:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .mainTitle {
+        font-size: 3rem;
+    }
+
+    .memberName {
+        font-size: 2.2rem;
+    }
+
+    .visualSection {
+        flex: 0 0 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sectionHeader {
+        padding: 60px 20px 40px;
+    }
+
+    .mainTitle {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .memberRow {
+        margin-bottom: 60px;
+    }
+
+    .memberContent {
+        flex-direction: column !important;
+        min-height: auto;
+    }
+
+    .textContent {
+        padding: 40px 30px;
+    }
+
+    .titleWrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .memberName {
+        font-size: 2rem;
+    }
+
+    .accentLine {
+        margin: 0 auto !important;
+    }
+
+    .memberDescription {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .expertiseTitle {
+        text-align: center;
+    }
+
+    .skillsContainer {
+        justify-content: center;
+    }
+
+    .visualSection {
+        flex: none;
+        padding: 30px;
+        flex-direction: row;
+        gap: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .accentBar {
+        width: 80%;
+        height: 4px;
+        position: relative;
+        background: linear-gradient(90deg, var(--accent-color), transparent);
+    }
+
+    .rightLayout .accentBar {
+        background: linear-gradient(90deg, transparent, var(--accent-color));
+    }
+
+    .footerNote {
+        padding: 50px 20px 70px;
+    }
+
+    .footerContent h3 {
+        font-size: 1.8rem;
+    }
+
+    .footerContent p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mainTitle {
+        font-size: 2rem;
+    }
+
+    .memberName {
+        font-size: 1.8rem;
+    }
+
+    .memberDescription {
+        font-size: 1rem;
+    }
+
+    .textContent {
+        padding: 30px 20px;
+    }
+
+    .visualSection {
+        padding: 25px 20px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .skillTag {
+        padding: 6px 14px;
+        font-size: 0.8rem;
+    }
+}

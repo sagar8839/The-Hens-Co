@@ -1,0 +1,313 @@
+/* hero.module.css */
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.backgroundVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.overlay {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Logo Styles */
+.logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* Menu Button Styles */
+.menuButton {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 0.8rem 1.5rem;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.menuButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.menuIcon {
+    display: flex;
+    flex-direction: column;
+    width: 20px;
+    height: 18px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.menuIcon span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menuIcon span:nth-child(1) {
+    position: absolute;
+    top: 0;
+}
+
+.menuIcon span:nth-child(2) {
+    position: absolute;
+    top: 8px;
+}
+
+.menuIcon span:nth-child(3) {
+    position: absolute;
+    top: 16px;
+}
+
+/* Hamburger to X animation */
+.menuOpen span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 8px;
+}
+
+.menuOpen span:nth-child(2) {
+    opacity: 0;
+}
+
+.menuOpen span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 8px;
+}
+
+.menuText {
+    font-family: 'Arial', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Navigation Menu Styles */
+.navMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 999;
+}
+
+.menuActive {
+    transform: translateX(0);
+}
+
+.navMenu ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.navMenu li {
+    margin: 2rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.menuActive li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation for menu items */
+.menuActive li:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.menuActive li:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.menuActive li:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.menuActive li:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+.menuActive li:nth-child(5) {
+    transition-delay: 0.5s;
+}
+
+.navMenu a {
+    color: white;
+    text-decoration: none;
+    font-size: 2.5rem;
+    font-weight: 300;
+    font-family: 'Georgia', serif;
+    padding: 1rem 2rem;
+    display: block;
+    transition: all 0.3s ease;
+    position: relative;
+    letter-spacing: 2px;
+}
+
+.navMenu a:hover {
+    color: #ffd700;
+    transform: translateX(10px);
+}
+
+.navMenu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: #ffd700;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navMenu a:hover::after {
+    width: 80%;
+}
+
+/* Content Styles (commented out in JSX, but ready if needed) */
+.content {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 4rem;
+}
+
+.tagline {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Georgia', serif;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.ctaButton {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #333;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ctaButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .overlay {
+        padding: 1rem;
+    }
+
+    .logo {
+        max-width: 150px;
+    }
+
+    .menuButton {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .navMenu a {
+        font-size: 2rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .tagline {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        max-width: 120px;
+    }
+
+    .navMenu a {
+        font-size: 1.5rem;
+    }
+
+    .menuText {
+        font-size: 0.8rem;
+    }
+}

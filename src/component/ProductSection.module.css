@@ -1,0 +1,311 @@
+/* ProductSection.module.css */
+
+.container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Section Base Styles */
+.section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 4rem 2rem;
+    overflow: hidden;
+}
+
+/* Wave Divider */
+.section::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
+/* Wave positioning - only between sections */
+.section:not(:first-child)::before {
+    top: -1px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%23ffffff'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.section:last-child::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23ffffff'%3E%3C/path%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Color Sections */
+.blueSection {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.orangeSection {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.greenSection {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Product Wrapper */
+.productWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+}
+
+/* Content Styles */
+.content {
+    position: relative;
+    z-index: 4;
+}
+
+.stickerRatingContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stickerIcon {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+}
+
+.ratingStar {
+    color: #FFD700;
+    font-size: 1.2rem;
+}
+
+.ratingText {
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.title.longTitle {
+    font-size: 2.8rem;
+}
+
+.description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+}
+
+.description strong {
+    color: white;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.button {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    color: #333;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+    background: linear-gradient(45deg, #FFA500, #FFD700);
+}
+
+/* Image Wrapper */
+.imageWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.image:hover {
+    transform: scale(1.05);
+}
+
+/* Dish Image Styles */
+.dishImage {
+    position: absolute;
+    max-width: 300px;
+    height: auto;
+    opacity: 0.15;
+    z-index: 1;
+    transition: transform 0.5s ease;
+}
+
+.dishImage:hover {
+    opacity: 0.25;
+    transform: scale(1.1);
+}
+
+.topLeftDish {
+    top: 10%;
+    left: 5%;
+}
+
+.bottomRightDish {
+    bottom: 10%;
+    right: 5%;
+}
+
+.topRightDish {
+    top: 10%;
+    right: 5%;
+}
+
+/* Bottom Dish Container */
+.bottomDishContainer {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.bottomDish {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .productWrapper {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 2.8rem;
+    }
+
+    .title.longTitle {
+        font-size: 2.3rem;
+    }
+
+    .dishImage {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 3rem 1rem;
+        min-height: auto;
+    }
+
+    .title {
+        font-size: 2.3rem;
+    }
+
+    .description {
+        font-size: 1.1rem;
+    }
+
+    .dishImage {
+        max-width: 150px;
+        opacity: 0.1;
+    }
+
+    .stickerRatingContainer {
+        justify-content: center;
+    }
+}
+
+/* Animation Effects */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.imageWrapper {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #764ba2, #667eea);
+}

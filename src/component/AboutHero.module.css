@@ -1,0 +1,36 @@
+.heroContainer {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aboutHero {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* ✅ Maintain aspect ratio & fill */
+    object-position: center;
+
+    /* Prevent image drag on mobile */
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .heroContainer {
+        height: 100vh;
+        min-height: -webkit-fill-available;
+    }
+
+    .aboutHero {
+        object-fit: contain;
+        /* ✅ On mobile, don’t crop image */
+    }
+}

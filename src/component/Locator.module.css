@@ -1,0 +1,339 @@
+.locator {
+    position: relative;
+    padding: 8rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, #ff8a00 0%, #ff5c00 25%, #e60000 50%, #ff5c00 75%, #ff8a00 100%);
+    background-size: 400% 400%;
+    border-radius: 0 0 60% 60% / 20%;
+    overflow: hidden;
+    color: #fff;
+    animation: gradientShift 8s ease infinite;
+    box-shadow: 0 20px 50px rgba(255, 92, 0, 0.3);
+    border: 8px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.locator::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.02);
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content h2 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow:
+        3px 3px 0px rgba(0, 0, 0, 0.2),
+        0 0 30px rgba(255, 255, 255, 0.5);
+    background: linear-gradient(45deg, #fff, #ffe0cc, #fff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: textShine 3s ease infinite;
+}
+
+@keyframes textShine {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.content p {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 300;
+    letter-spacing: 1px;
+    animation: fadeIn 1s ease 0.3s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.btn {
+    background: linear-gradient(45deg, #fff, #ffe0cc);
+    color: #ff5c00;
+    padding: 1.2rem 3rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow:
+        0 10px 30px rgba(255, 255, 255, 0.3),
+        0 0 0 3px rgba(255, 255, 255, 0.2),
+        inset 0 2px 10px rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s;
+}
+
+.btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow:
+        0 15px 40px rgba(255, 255, 255, 0.5),
+        0 0 0 5px rgba(255, 255, 255, 0.3),
+        inset 0 2px 15px rgba(255, 255, 255, 0.9);
+    background: linear-gradient(45deg, #ffe0cc, #fff);
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Decorative Images */
+.decor {
+    position: absolute;
+    max-width: 150px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    z-index: 1;
+    animation: floatElement 4s ease-in-out infinite;
+}
+
+@keyframes floatElement {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+.topLeft {
+    top: 20px;
+    left: 20px;
+    animation-delay: 0s;
+    max-width: 180px;
+}
+
+.bottomLeft {
+    bottom: 40px;
+    left: 60px;
+    animation-delay: 0.5s;
+    max-width: 140px;
+}
+
+.topRight {
+    top: 30px;
+    right: 60px;
+    animation-delay: 1s;
+    max-width: 160px;
+}
+
+.bottomRight {
+    bottom: 30px;
+    right: 40px;
+    max-width: 200px;
+    animation-delay: 1.5s;
+}
+
+/* Particle Effects */
+.locator::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.3) 2px, transparent 2px),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        radial-gradient(circle at 40% 90%, rgba(255, 255, 255, 0.4) 3px, transparent 3px);
+    background-size: 200px 200px, 150px 150px, 100px 100px;
+    animation: particleMove 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes particleMove {
+    from {
+        background-position: 0 0, 0 0, 0 0;
+    }
+
+    to {
+        background-position: 200px 200px, 150px 150px, 100px 100px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .locator {
+        padding: 6rem 1.5rem;
+        border-radius: 0 0 40% 40% / 10%;
+    }
+
+    .content h2 {
+        font-size: 2.5rem;
+    }
+
+    .content p {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+
+    .decor {
+        max-width: 100px;
+    }
+
+    .topLeft {
+        max-width: 120px;
+        left: 10px;
+    }
+
+    .bottomLeft {
+        max-width: 100px;
+        left: 20px;
+    }
+
+    .topRight {
+        max-width: 110px;
+        right: 20px;
+    }
+
+    .bottomRight {
+        max-width: 140px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .locator {
+        padding: 4rem 1rem;
+    }
+
+    .content h2 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .content p {
+        font-size: 1rem;
+    }
+
+    .decor {
+        max-width: 80px;
+    }
+
+    .topLeft {
+        max-width: 90px;
+    }
+
+    .bottomLeft {
+        max-width: 80px;
+    }
+
+    .topRight {
+        max-width: 85px;
+    }
+
+    .bottomRight {
+        max-width: 110px;
+    }
+}
+
+/* Glow pulse animation */
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 20px 50px rgba(255, 92, 0, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 20px 70px rgba(255, 92, 0, 0.6);
+    }
+}
+
+.locator {
+    animation: gradientShift 8s ease infinite, glowPulse 4s ease-in-out infinite;
+}

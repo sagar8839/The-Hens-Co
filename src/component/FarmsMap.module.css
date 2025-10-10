@@ -1,0 +1,718 @@
+.mapSection {
+    position: relative;
+    background: linear-gradient(135deg, #f8fdf8 0%, #e8f5e8 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Text Box Styles */
+.textBox {
+    animation: fadeInUp 1s ease-out;
+}
+
+.textContent {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow:
+        0 20px 40px rgba(76, 175, 80, 0.1),
+        0 0 0 1px rgba(76, 175, 80, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(76, 175, 80, 0.1);
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #2e7d32, #4caf50);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.highlight {
+    color: #ff6b35;
+    -webkit-text-fill-color: #ff6b35;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.featureItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: rgba(248, 253, 248, 0.8);
+}
+
+.featureItem:hover {
+    transform: translateX(10px);
+    background: rgba(76, 175, 80, 0.05);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1);
+}
+
+.featureIcon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    animation: float 3s ease-in-out infinite;
+}
+
+.featureItem:nth-child(2) .featureIcon {
+    animation-delay: 0.5s;
+}
+
+.featureItem:nth-child(3) .featureIcon {
+    animation-delay: 1s;
+}
+
+.featureItem p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.accent {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+/* Map Box Styles */
+.mapBox {
+    animation: fadeInRight 1s ease-out 0.3s both;
+}
+
+.mapContainer {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(76, 175, 80, 0.2);
+    transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+    transition: all 0.5s ease;
+}
+
+.mapContainer:hover {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
+    box-shadow:
+        0 35px 70px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(76, 175, 80, 0.3);
+}
+
+.mapImage {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.mapContainer:hover .mapImage {
+    transform: scale(1.05);
+}
+
+.mapOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg,
+            rgba(46, 125, 50, 0.1) 0%,
+            rgba(76, 175, 80, 0.05) 50%,
+            rgba(255, 107, 53, 0.1) 100%);
+    pointer-events: none;
+}
+
+.floatingIcons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.icon {
+    position: absolute;
+    font-size: 2rem;
+    animation: bounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+.icon:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.icon:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.icon:nth-child(3) {
+    animation-delay: 1.4s;
+}
+
+/* Wave Styles */
+ /* Wave Styles */
+ .wave {
+     position: absolute;
+     left: 0;
+     width: 100%;
+     overflow: hidden;
+     line-height: 0;
+     /* Ensure the wave is above the background, but below the content */
+     z-index: 1;
+ }
+
+ .waveTop {
+     top: 0;
+     /* Removed transform: rotate(180deg) */
+     animation: waveAnimationTop 8s ease-in-out infinite;
+ }
+
+ .waveBottom {
+     bottom: 0;
+     animation: waveAnimationBottom 8s ease-in-out infinite;
+ }
+
+ .wave svg {
+     position: relative;
+     display: block;
+     width: calc(100% + 1.3px);
+     /* Made height slightly smaller for better look, adjust as needed */
+     height: 100px;
+ }
+
+
+
+.shapeFill {
+    fill: rgba(76, 175, 80, 0.1);
+}
+
+
+
+/* Animations */
+
+/* ... rest of the animations ... */
+
+/* ------------------------------------------- */
+/* 1. Animation Keyframes */
+/* ------------------------------------------- */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.1);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Keyframe for flowing wave animation */
+@keyframes flowWave {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes waveAnimationTop {
+
+    0%,
+    100% {
+        transform: rotate(180deg) translateX(0px);
+    }
+
+    50% {
+        transform: rotate(180deg) translateX(-20px);
+    }
+}
+
+@keyframes waveAnimationBottom {
+
+    0%,
+    100% {
+        transform: translateX(0px);
+    }
+
+    50% {
+        transform: translateX(-20px);
+    }
+}
+
+/* ------------------------------------------- */
+/* 2. Main Section Styling & Layout */
+/* ------------------------------------------- */
+
+.mapSection {
+    position: relative;
+    background: linear-gradient(135deg, #f8fdf8 0%, #e8f5e8 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: #2c3e50;
+    padding: 4rem 0 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* ------------------------------------------- */
+/* 3. Text Box Styling (Left) */
+/* ------------------------------------------- */
+
+.textBox {
+    animation: fadeInUp 1s ease-out;
+}
+
+.textContent {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow:
+        0 20px 40px rgba(76, 175, 80, 0.1),
+        0 0 0 1px rgba(76, 175, 80, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(76, 175, 80, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.textContent:hover {
+    transform: translateY(-5px);
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #2e7d32, #4caf50);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.highlight {
+    color: #ff6b35;
+    -webkit-text-fill-color: #ff6b35;
+    font-weight: 900;
+    display: inline-block;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.highlight:hover {
+    transform: rotate(2deg);
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.featureItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: rgba(248, 253, 248, 0.8);
+}
+
+.featureItem:hover {
+    transform: translateX(10px);
+    background: rgba(76, 175, 80, 0.05);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1);
+}
+
+.featureIcon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    animation: float 3s ease-in-out infinite;
+}
+
+.featureItem:nth-child(2) .featureIcon {
+    animation-delay: 0.5s;
+}
+
+.featureItem:nth-child(3) .featureIcon {
+    animation-delay: 1s;
+}
+
+.featureItem p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.accent {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+/* ------------------------------------------- */
+/* 4. Map Box Styling (Right) */
+/* ------------------------------------------- */
+
+.mapBox {
+    animation: fadeInRight 1s ease-out 0.3s both;
+}
+
+.mapContainer {
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(76, 175, 80, 0.2);
+    transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+    transition: all 0.5s ease;
+    animation: scaleIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s forwards;
+}
+
+.mapContainer:hover {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
+    box-shadow:
+        0 35px 70px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(76, 175, 80, 0.3);
+}
+
+.mapImage {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.mapContainer:hover .mapImage {
+    transform: scale(1.05);
+}
+
+.mapOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg,
+            rgba(46, 125, 50, 0.1) 0%,
+            rgba(76, 175, 80, 0.05) 50%,
+            rgba(255, 107, 53, 0.1) 100%);
+    pointer-events: none;
+}
+
+.floatingIcons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.icon {
+    position: absolute;
+    font-size: 2rem;
+    animation: bounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+.icon:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.icon:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.icon:nth-child(3) {
+    animation-delay: 1.4s;
+}
+
+/* ------------------------------------------- */
+/* 5. Enhanced Wave Divider Styling */
+/* ------------------------------------------- */
+
+.wave {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.waveTop {
+    top: 0;
+    transform: rotate(180deg);
+}
+
+.waveBottom {
+    bottom: 0;
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.shapeFill {
+    fill: rgba(76, 175, 80, 0.1);
+}
+
+/* Enhanced Wave Animation with Dual Layers */
+.wave::before,
+.wave::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+/* Layer 1: Darker, slower wave */
+.wave::before {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%234caf50' fill-opacity='0.1' d='M0,192L80,186.7C160,181,320,171,480,181.3C640,192,800,224,960,218.7C1120,213,1280,171,1360,150L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+    background-size: 50% 100%;
+    opacity: 0.7;
+    animation: flowWave 15s linear infinite reverse;
+    z-index: 2;
+}
+
+/* Layer 2: Lighter, faster wave */
+.wave::after {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%232e7d32' fill-opacity='0.05' d='M0,160L48,165.3C96,171,192,181,288,176C384,171,480,149,576,128C672,107,768,85,864,80C960,75,1056,80,1152,101.3C1248,123,1344,160,1392,178.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+    background-size: 50% 100%;
+    opacity: 0.9;
+    animation: flowWave 10s linear infinite;
+    z-index: 1;
+}
+
+/* ------------------------------------------- */
+/* 6. Background Elements */
+/* ------------------------------------------- */
+
+.mapSection::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.mapSection::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse 4s ease-in-out infinite 2s;
+}
+
+/* ------------------------------------------- */
+/* 7. Responsive Design */
+/* ------------------------------------------- */
+
+/* Tablet (max-width 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 2rem 1rem;
+        gap: 2rem;
+    }
+
+    .textBox h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Mobile (max-width 768px) */
+@media (max-width: 768px) {
+    .mapSection {
+        padding-top: 2rem;
+        min-height: auto;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .textContent {
+        padding: 25px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .featureItem {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .featureIcon {
+        font-size: 1.5rem;
+    }
+
+    .featureItem p {
+        font-size: 1rem;
+    }
+
+    .mapContainer {
+        transform: none;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .mapContainer:hover {
+        transform: scale(1.02);
+    }
+
+    .mapImage {
+        height: 300px;
+    }
+
+    .wave svg {
+        height: 80px;
+    }
+}
+
+/* Small Mobile (max-width 480px) */
+@media (max-width: 480px) {
+    .textContent {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .features {
+        gap: 15px;
+    }
+
+    .featureItem {
+        padding: 10px;
+    }
+
+    .mapImage {
+        height: 250px;
+    }
+}
