@@ -1,0 +1,340 @@
+/* --- Global Configuration & Keyframes --- */
+
+:root {
+    --color-primary: #667eea;
+    --color-secondary: #764ba2;
+    --color-tertiary: #f093fb;
+    --card-bg: rgba(255, 255, 255, 0.98);
+    --shadow-light: rgba(0, 0, 0, 0.15);
+    --shadow-heavy: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes cardEntrance {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-15px); }
+    60% { transform: translateY(-7px); }
+}
+
+@keyframes dotPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+/* --- Curved Section Styling --- */
+
+.curvedSection {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-tertiary) 100%);
+    padding: 150px 0 100px;
+    position: relative;
+    margin-top: -80px;
+    border-radius: 50% 50% 0 0 / 180px 180px 0 0;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.curvedSection::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+    animation: shimmer 10s ease-in-out infinite alternate;
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* --- Slider Core --- */
+
+/* --- Slider Core --- */
+
+.sliderContainer {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 80px;
+}
+
+.sliderTrack {
+    display: flex;
+    /* MOVE THE TRANSITION HERE for smooth sliding */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    gap: 40px;
+    padding: 30px 0;
+      align-items: stretch;
+    will-change: transform; /* Improve performance */
+}
+
+/* --- Card Styling --- */
+
+.card {
+    /* Define width for 4 cards + gaps (25% - 30px is roughly what 40px gap needs) */
+    flex: 0 0 calc(25% - 30px); 
+    background: var(--card-bg);
+    border-radius: 35px;
+    padding: 40px 30px 50px;
+    text-align: center;
+    box-shadow: 0 25px 50px var(--shadow-light);
+    /* REMOVE transform transition from here, keep only hover effects */
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(15px);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(80px) scale(0.9);
+      animation: cardEntrance 1.2s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
+    will-change: transform, box-shadow;
+}
+
+.card:hover {
+    transform: translateY(-20px) scale(1.05) rotateX(3deg);
+    box-shadow: 0 40px 80px var(--shadow-heavy);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    transition: left 0.8s ease-in-out;
+    transform: skewX(-20deg);
+}
+
+.card:hover::before {
+    left: 150%;
+}
+
+.imageWrapper {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.card img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+}
+
+.card:hover img {
+    transform: scale(1.35) rotate(-8deg);
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
+.card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 25px;
+    background: linear-gradient(45deg, #1e3a24, #2c5530);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    border-radius: 2px;
+    transition: width 0.5s ease;
+}
+
+.card:hover h3::after {
+    width: 100px;
+}
+
+.card p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #444;
+    font-weight: 500;
+}
+
+/* Color variants with gradient borders */
+.red { border-image: linear-gradient(to top, #ff6b6b, #ff8e53) 1 0 0 8; }
+.green { border-image: linear-gradient(to top, #51cf66, #94d82d) 1 0 0 8; }
+.blue { border-image: linear-gradient(to top, #339af0, #22b8cf) 1 0 0 8; }
+.orange { border-image: linear-gradient(to top, #ff922b, #ffa94d) 1 0 0 8; }
+
+/* --- Slider Arrows --- */
+
+.sliderArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateZ(0);
+    background: var(--card-bg);
+    border: none;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 10;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    color: var(--color-secondary);
+    font-weight: 100;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sliderArrow:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.2) rotate(5deg);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    color: var(--color-primary);
+}
+
+.sliderArrow.prev {
+    left: 20px;
+}
+
+.sliderArrow.next {
+    right: 20px;
+}
+
+.arrowIcon {
+    position: relative;
+    top: -2px;
+}
+
+/* --- Navigation Dots --- */
+
+.sliderNav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.sliderDot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    overflow: visible;
+}
+
+.sliderDot.active {
+    background: white;
+    transform: scale(1.5);
+    border-color: rgba(255, 255, 255, 0.8);
+    animation: bounce 2s infinite ease-in-out;
+}
+
+.dotPulse {
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sliderDot.active .dotPulse {
+    animation: dotPulse 1.5s infinite;
+}
+
+.sliderDot:hover {
+    transform: scale(1.2);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 1200px) {
+    /* At this size, we only want 3 cards visible, so each card takes (100%/3) */
+    .card {
+        flex: 0 0 calc(33.333% - 26.666px); 
+    }
+}
+
+@media (max-width: 992px) {
+    /* At this size, 2 cards visible */
+    .card {
+        flex: 0 0 calc(50% - 20px); 
+    }
+    .sliderContainer {
+        padding: 0 20px;
+    }
+    .sliderArrow {
+        width: 50px;
+        height: 50px;
+        font-size: 2.5rem;
+    }
+    .sliderArrow.prev { left: 5px; }
+    .sliderArrow.next { right: 5px; }
+}
+
+@media (max-width: 576px) {
+    .curvedSection {
+        padding: 120px 0 60px;
+    }
+    /* At this size, 1 card visible */
+    .card {
+        flex: 0 0 100%; 
+        padding: 30px 20px;
+        margin: 0 10px;
+    }
+    .sliderContainer {
+        padding: 0 10px;
+    }
+    .sliderTrack {
+        gap: 20px;
+    }
+    .sliderArrow {
+        display: none;
+    }
+}

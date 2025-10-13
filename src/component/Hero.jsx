@@ -1,12 +1,12 @@
-import { useState } from 'react';
+ 
 import styles from "./hero.module.css";
 
 function Hero() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  // const toggleMenu = () => {
+  //   setIsMenuOpen(!isMenuOpen);
+  // };
 
   return(
     <div className={styles.container}>

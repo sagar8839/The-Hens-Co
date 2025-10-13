@@ -32,7 +32,7 @@ const Locator = () => {
         src="./images/white.webp"
         alt="blue egg"
         className={`${styles.decor} ${styles.topRight}`}
-      />
+      />  
       <img
         src="./images/vb.png"
         alt="hen"

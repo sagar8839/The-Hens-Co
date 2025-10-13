@@ -10,6 +10,7 @@ import Happy from '../component/Happy'
 import Footer from '../component/Footer'
 import Header from '../component/Header'
 import Download from '../component/Download'
+import Slider from '../component/Slider'
  
 
 
@@ -20,6 +21,7 @@ function Home()  {
        <Hero/>
        <Banners/>
        <HomeSections/>
+       <Slider/>
        <TestimonialsContainer/>
        <Wrap/>
        <Promotion/>
