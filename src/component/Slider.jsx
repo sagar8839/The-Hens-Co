@@ -1,12 +1,48 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ import this
 import styles from './Slider.module.css';
 
 const Slider = ({ renderParticles }) => {
+  const navigate = useNavigate(); // ✅ navigation hook
+
   const cards = [
-    { id: 1, className: styles.red, imgSrc: "/images/kids.png", imgAlt: "Pasture Raised", title: "Kids Egg", description: "Free-range lifestyle & stronger yolks" },
-    { id: 2, className: styles.green, imgSrc: "/images/womm.png", imgAlt: "Organic Free Range", title: "Womens Egg", description: "100% Certified Organic, Non-GMO feed" },
-    { id: 3, className: styles.blue, imgSrc: "/images/thirty.png", imgAlt: "Heritage", title: "Box of 30 Eggs", description: "Unique White & speckled shells" },
-    { id: 4, className: styles.orange, imgSrc: "/images/6.png", imgAlt: "Free Range", title: "Box of 6 Eggs", description: "Fresh free-range eggs with orange yolks" },
+    {
+      id: 1,
+      className: styles.red,
+      imgSrc: "/images/kids.png",
+      imgAlt: "Pasture Raised",
+      title: "Kids Egg",
+      description: "Free-range lifestyle & stronger yolks",
+      link: "/kids", // ✅ route to navigate
+      
+    },
+    {
+      id: 2,
+      className: styles.green,
+      imgSrc: "/images/womm.png",
+      imgAlt: "Organic Free Range",
+      title: "Womens Egg",
+      description: "100% Certified Organic, Non-GMO feed",
+      link: "/women", // ✅ route to navigate
+    },
+    {
+      id: 3,
+      className: styles.blue,
+      imgSrc: "/images/thirty.png",
+      imgAlt: "Heritage",
+      title: "Box of 30 Eggs",
+      description: "Unique White & speckled shells",
+     link: "/Eggs", // ✅ route to navigate
+    },
+    {
+      id: 4,
+      className: styles.orange,
+      imgSrc: "/images/6.png",
+      imgAlt: "Free Range",
+      title: "Box of 6 Eggs",
+      description: "Fresh free-range eggs with orange yolks",
+      link: "/Eggs", // ✅ route to navigate
+    },
   ];
 
   // refs
@@ -16,7 +52,7 @@ const Slider = ({ renderParticles }) => {
 
   // state
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [stepPx, setStepPx] = useState(0); // pixels to move per slide
+  const [stepPx, setStepPx] = useState(0);
   const [cardsToShow, setCardsToShow] = useState(4);
 
   // compute step: card width + gap (in px)
@@ -26,28 +62,23 @@ const Slider = ({ renderParticles }) => {
     if (!track || !firstCard) return;
 
     const cardWidth = firstCard.offsetWidth;
-    // read gap from computed style (works in modern browsers)
     const style = window.getComputedStyle(track);
     const gapStr = style.getPropertyValue('gap') || style.getPropertyValue('column-gap') || '0px';
     const gapPx = parseFloat(gapStr) || 0;
 
     setStepPx(Math.round(cardWidth + gapPx));
 
-    // determine how many cards are visible (helps compute maxSlide)
     const containerWidth = containerRef.current ? containerRef.current.clientWidth : 0;
-    // roughly compute cards visible using cardWidth + gap
     const visible = Math.max(1, Math.floor((containerWidth + gapPx) / (cardWidth + gapPx)));
     setCardsToShow(visible);
   }, []);
 
-  // recompute on mount and resize
   useEffect(() => {
     computeStep();
     window.addEventListener('resize', computeStep);
     return () => window.removeEventListener('resize', computeStep);
   }, [computeStep]);
 
-  // re-calc after images load (some images might change width)
   useEffect(() => {
     const imgs = containerRef.current ? containerRef.current.querySelectorAll('img') : [];
     let loaded = 0;
@@ -61,7 +92,6 @@ const Slider = ({ renderParticles }) => {
       if (img.complete) onLoad();
       else img.addEventListener('load', onLoad, { once: true });
     });
-    // cleanup listeners (not strictly necessary with once:true, but safe)
     return () => imgs.forEach(img => img.removeEventListener && img.removeEventListener('load', onLoad));
   }, [computeStep, cards]);
 
@@ -92,24 +122,25 @@ const Slider = ({ renderParticles }) => {
           ref={trackRef}
           style={{
             transform: `translate3d(-${currentSlide * stepPx}px, 0, 0)`,
-            // keep the transition in CSS but ensure hardware acceleration
             willChange: 'transform',
           }}
         >
-          {cards.map((card, index) => (
-            <div
-              key={card.id}
-              ref={index === 0 ? firstCardRef : null}
-              className={`${styles.card} ${card.className}`}
-              style={{ animationDelay: `${0.2 + index * 0.15}s` }}
-            >
-              <div className={styles.imageWrapper}>
-                <img src={card.imgSrc} alt={card.imgAlt} />
-              </div>
-              <h3>{card.title}</h3>
-              <p>{card.description}</p>
-            </div>
-          ))}
+         {cards.map((card, index) => (
+  <div
+    key={card.id}
+    ref={index === 0 ? firstCardRef : null}
+    className={`${styles.card} ${card.className}`}
+    style={{ animationDelay: `${0.2 + index * 0.15}s`, cursor: 'pointer' }}
+    onClick={() => navigate(card.link)}
+  >
+    <div className={styles.imageWrapper}>
+      <img src={card.imgSrc} alt={card.imgAlt} />
+    </div>
+    <h3>{card.title}</h3>
+    <p>{card.description}</p>
+  </div>
+))}
+
         </div>
 
         <button

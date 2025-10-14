@@ -13,11 +13,14 @@ import Faq from './pages/Faq'
 import Women from './pages/Women'
 import Kids from './pages/Kids'
 import BoxEgg from './pages/Boxegg'
+ 
+import ScrollToTop from './component/ScrollToTop'
 // import NotFound from './pages/NotFound' // Optional 404 page
 
 function App() {
   return (
     <Router>
+      <ScrollToTop/>
       <Routes>
         {/* Home Route */}
         <Route path="/" element={<Home />} />
@@ -40,6 +43,9 @@ function App() {
       <Route path='/kids' element={<Kids/>} />
 
        <Route path='/Eggs' element={<BoxEgg/>} />
+
+      
+
         
         {/* Optional: Product Detail Route */}
         <Route path="/products/:id" element={<Product />} />

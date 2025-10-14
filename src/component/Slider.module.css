@@ -45,7 +45,7 @@
     perspective: 1000px;
 }
 
-.curvedSection::after {
+/* .curvedSection::after {
     content: '';
     position: absolute;
     top: 0;
@@ -56,7 +56,26 @@
         radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
         radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
     animation: shimmer 10s ease-in-out infinite alternate;
+} */
+
+
+.curvedSection::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+      radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
+      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+  animation: shimmer 10s ease-in-out infinite alternate;
+
+  pointer-events: none; /* ✅ add this line */
+  z-index: 2; /* ✅ move it below cards */
 }
+
+
 
 .particles {
     position: absolute;
@@ -93,23 +112,40 @@
 /* --- Card Styling --- */
 
 .card {
-    /* Define width for 4 cards + gaps (25% - 30px is roughly what 40px gap needs) */
+  
+    
     flex: 0 0 calc(25% - 30px); 
     background: var(--card-bg);
     border-radius: 35px;
     padding: 40px 30px 50px;
     text-align: center;
     box-shadow: 0 25px 50px var(--shadow-light);
-    /* REMOVE transform transition from here, keep only hover effects */
+ 
+    
   transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     backdrop-filter: blur(15px);
     position: relative;
     overflow: hidden;
     opacity: 0;
+      z-index: 5;
     transform: translateY(80px) scale(0.9);
       animation: cardEntrance 1.2s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
     will-change: transform, box-shadow;
+     pointer-events: auto;
+
 }
+
+
+/* 
+.card {
+  position: relative;
+  z-index: 5; 
+  pointer-events: auto;
+} */
+
+
+
+
 
 .card:hover {
     transform: translateY(-20px) scale(1.05) rotateX(3deg);
