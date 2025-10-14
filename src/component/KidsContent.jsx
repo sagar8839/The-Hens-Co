@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import styles from "./womenContent.module.css";
+import styles from "./KidsContent.module.css";
 
 import eggBox from "/images/kids.png";
 import yolkDish from "/images/yolks.webp";

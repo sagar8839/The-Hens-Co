@@ -1,0 +1,533 @@
+/* WomenContent.module.css */
+
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff5f5 0%, #fef7ff 50%, #f0f9ff 100%);
+  overflow: hidden;
+}
+
+/* Animated Waves */
+.waveContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 182, 193, 0.1), transparent);
+  animation: waveAnimation 8s linear infinite;
+}
+
+.wave:nth-child(2) {
+  animation-delay: -2s;
+  opacity: 0.5;
+}
+
+.wave:nth-child(3) {
+  animation-delay: -4s;
+  opacity: 0.3;
+}
+
+@keyframes waveAnimation {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero Section */
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.heroText {
+  padding: 2rem 0;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #e91e63, #9c27b0, #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.titleMain {
+  display: block;
+}
+
+.titleSub {
+  display: block;
+  font-size: 0.7em;
+  opacity: 0.9;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.mainImageContainer {
+  position: relative;
+  text-align: center;
+}
+
+.mainImage {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: rotate(-5deg);
+  transition: transform 0.3s ease;
+}
+
+.mainImage:hover {
+  transform: rotate(-2deg) scale(1.02);
+}
+
+.floatingBadge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Feature Badges */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 4rem 0;
+}
+
+.featureBadge {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.featureBadge:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.emoji {
+  font-size: 2.5rem;
+  margin-right: 1rem;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+}
+
+.featureBadge h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.featureBadge p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Content Section */
+.contentSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin: 6rem 0;
+}
+
+.sectionLabel {
+  display: inline-block;
+  background: linear-gradient(135deg, #e91e63, #9c27b0);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.textBlock h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #333;
+  line-height: 1.2;
+}
+
+.textBlock p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.qualityTags {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.qualityTags span {
+  background: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #666;
+  border: 1px solid #e9ecef;
+}
+
+.imageContainer {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(233, 30, 99, 0.1), rgba(156, 39, 176, 0.1));
+  pointer-events: none;
+}
+
+/* Stats Section */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.statCard {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.statCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.statIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.statCard h3 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0.5rem 0;
+  background: linear-gradient(135deg, #e91e63, #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.statCard p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.statCard small {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Unique Breed Section */
+.uniqueSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin: 6rem 0;
+}
+
+.breedImageContainer {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.breedImage {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.breedBadge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  font-weight: 600;
+  color: #333;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.breedContent h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.breedContent p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.breedFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.breedFeature {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.featureIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.breedFeature h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.breedFeature p {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* CTA Section */
+.ctaSection {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 30px;
+  color: white;
+  margin: 4rem 0;
+}
+
+.ctaSection h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.ctaSection p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.ctaButton {
+  background: white;
+  color: #667eea;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.ctaArrow {
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .ctaArrow {
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .contentSection,
+  .uniqueSection {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .floatingBadge {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 1rem auto;
+    display: inline-block;
+  }
+
+  .mainImage {
+    transform: none;
+  }
+
+  .mainImage:hover {
+    transform: scale(1.02);
+  }
+
+  .textBlock h2,
+  .breedContent h2,
+  .ctaSection h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .featureBadge {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .emoji {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .qualityTags {
+    justify-content: center;
+  }
+}
+
+.bulletList {
+  /* Removes default list styling (bullets) */
+  list-style: none;
+  /* Removes default padding from the list container */
+  padding-left: 0;
+  /* Adds some overall margin to separate it from other content */
+  margin: 1em 0;
+}
+
+.bulletList li {
+  /* Styles for each list item */
+  /* Adds a little space between the items */
+  margin-bottom: 0.5em;
+  /* Sets a readable font size */
+  font-size: 1.1em;
+  /* Makes the text slightly heavier */
+  font-weight: 500;
+  /* Ensures text doesn't flow under the icon/emoji unnecessarily */
+  line-height: 1.4;
+  /* Optional: Adds a small left indentation to make it look like a list */
+  padding-left: 1.5em;
+  /* Optional: Adds an icon/emoji as a pseudo-element for custom bullet points */
+  /* If you want to use the emojis already in the HTML, you can remove this */
+  /*
+  position: relative;
+  */
+}
+
+ 
