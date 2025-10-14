@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./WomenContent.module.css";
+import styles from "./womenContent.module.css";
 import eggBox from "/images/womm.png";
 import yolkDish from "/images/yolks.webp";
 import brownBlueEggs from "/images/vb300.png";
