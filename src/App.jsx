@@ -15,6 +15,8 @@ import Kids from './pages/Kids'
 import BoxEgg from './pages/Boxegg'
  
 import ScrollToTop from './component/ScrollToTop'
+ 
+import SmallEggBox from './pages/SmallBoxEgg'
 // import NotFound from './pages/NotFound' // Optional 404 page
 
 function App() {
@@ -43,6 +45,8 @@ function App() {
       <Route path='/kids' element={<Kids/>} />
 
        <Route path='/Eggs' element={<BoxEgg/>} />
+
+        <Route path='/Egg' element={<SmallEggBox/>} />
 
       
 

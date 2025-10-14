@@ -45,6 +45,20 @@ const products = [
   sticker: <FaStar className={styles.stickerIcon} />,
   link : "/Eggs",
 },
+{
+  id: 4,
+  title: "Box of 6 Eggs",
+  description:
+    "**Freshness in Every Dozen.** A family pack of premium-quality eggs — naturally rich, clean, and full of flavor. Perfect for families, food lovers, and bakers who never compromise on quality. Enjoy consistent freshness, nutrition, and value with every egg.",
+  image: "/images/6box.png",
+  bgColor: styles.burgundySection , // Changed from greenSection to purpleSection
+  dishImage: "/images/eggCurry.webp",
+  dishPosition: styles.topRightDish,
+  rating: 4.7,
+  sticker: <FaStar className={styles.stickerIcon} />,
+  link: "/Egg",
+},
+
 
 ];
 
