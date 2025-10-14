@@ -200,7 +200,7 @@
 
 .imgSmall img {
     width: 220px;
-    height: 150px;
+    height: 250px;
     object-fit: cover;
     border-radius: 15px;
     border: 6px solid #fff;

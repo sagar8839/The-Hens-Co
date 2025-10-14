@@ -64,13 +64,13 @@ const Promotion = () => {
         <div className={styles.images}>
           <div className={styles.imgMain}>
             <img
-              src="./images/hens.jpg"
+              src="./images/vbhen.png"
               alt="chicken"
             />
           </div>
           <div className={styles.imgSmall}>
             <img
-              src="./images/henswith.jpg"
+              src="./images/henwithwomen.png"
               alt="farmer"
             />
           </div>
