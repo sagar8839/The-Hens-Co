@@ -3,6 +3,7 @@ import styles from "./Footer.module.css";
 
 // Import social media icons (you'll need to install react-icons)
 import { FaInstagram, FaFacebookF, FaTiktok, FaPinterestP, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,32 +46,32 @@ const Footer = () => {
           <div className={styles.linkColumn}>
             <h3 className={styles.linkTitle}>Explore</h3>
             <ul>
-              <li><span className={styles.linkItem}>Products</span></li>
-              <li><span className={styles.linkItem}>Our Farms</span></li>
-              <li><span className={styles.linkItem}>Become a Farmer</span></li>
-              <li><span className={styles.linkItem}>About</span></li>
-              <li><span className={styles.linkItem}>Blog</span></li>
-              <li><span className={styles.linkItem}>Store Locator</span></li>
+              <li><span className={styles.linkItem}> <Link to="/products">  Products </Link></span></li>
+              <li><span className={styles.linkItem}> <Link to="/our-farms"> Our Farms </Link> </span></li>
+              {/* <li><span className={styles.linkItem}>Become a Farmer</span></li> */}
+              <li><span className={styles.linkItem}> <Link to="/about"> About </Link></span></li>
+              <li><span className={styles.linkItem}><Link to="/team"> Teams </Link></span></li>
+              <li><span className={styles.linkItem}> <Link to ="https://hens-co-egg.vercel.app/"> Store Locator </Link> </span></li>
             </ul>
           </div>
           
           <div className={styles.linkColumn}>
             <h3 className={styles.linkTitle}>Our Eggs</h3>
             <ul>
-              <li><span className={styles.linkItem}>Heritage</span></li>
-              <li><span className={styles.linkItem}>Pasture Raised</span></li>
-              <li><span className={styles.linkItem}>Organic Free Range</span></li>
-              <li><span className={styles.linkItem}>Free Range</span></li>
+              <li><span className={styles.linkItem}> <Link to="/women"> Women </Link> </span></li>
+              <li><span className={styles.linkItem}> <Link to="/kids"> Kids </Link> </span></li>
+              <li><span className={styles.linkItem}> <Link to="/eggs"> Thrity Egg Box </Link> </span></li>
+              <li><span className={styles.linkItem}> <Link to="/egg"> Six Egg Box </Link> </span></li>
             </ul>
           </div>
           
           <div className={styles.linkColumn}>
             <h3 className={styles.linkTitle}>Support</h3>
             <ul>
-              <li><span className={styles.linkItem}>FAQs</span></li>
-              <li><span className={styles.linkItem}>Careers</span></li>
-              <li><span className={styles.linkItem}>Press</span></li>
-              <li><span className={styles.linkItem}>Contact</span></li>
+              <li><span className={styles.linkItem}> <Link to ="/faq"> FAQs </Link> </span></li>
+              {/* <li><span className={styles.linkItem}>Careers</span></li>
+              <li><span className={styles.linkItem}>Press</span></li> */}
+              <li><span className={styles.linkItem}> <Link to="/contact"> Contact </Link>  </span></li>
             </ul>
           </div>
         </div>
@@ -80,35 +81,35 @@ const Footer = () => {
           <div className={styles.socials}>
             <h3 className={styles.socialTitle}>Follow the Flock</h3>
             <div className={styles.socialIcons}>
-              <a href="#" className={styles.socialIcon} aria-label="Instagram">
+              <a href="https://www.instagram.com/thehensco?igsh=MWx1b2wxbmJidjMxag==" className={styles.socialIcon} aria-label="Instagram">
                 <FaInstagram className={styles.icon} />
                 <div className={styles.iconHover}></div>
               </a>
-              <a href="#" className={styles.socialIcon} aria-label="Facebook">
+              <a href="https://www.facebook.com/share/1HKQorWYjM/?mibextid=wwXIfr" className={styles.socialIcon} aria-label="Facebook">
                 <FaFacebookF className={styles.icon} />
                 <div className={styles.iconHover}></div>
               </a>
-              <a href="#" className={styles.socialIcon} aria-label="TikTok">
+              {/* <a href="#" className={styles.socialIcon} aria-label="TikTok">
                 <FaTiktok className={styles.icon} />
                 <div className={styles.iconHover}></div>
               </a>
               <a href="#" className={styles.socialIcon} aria-label="Pinterest">
                 <FaPinterestP className={styles.icon} />
                 <div className={styles.iconHover}></div>
-              </a>
+              </a> */}
               <a href="#" className={styles.socialIcon} aria-label="LinkedIn">
                 <FaLinkedinIn className={styles.icon} />
                 <div className={styles.iconHover}></div>
               </a>
-              <a href="#" className={styles.socialIcon} aria-label="YouTube">
+              {/* <a href="#" className={styles.socialIcon} aria-label="YouTube">
                 <FaYoutube className={styles.icon} />
                 <div className={styles.iconHover}></div>
-              </a>
+              </a> */}
             </div>
           </div>
           
           <button className={styles.btn}>
-            <span className={styles.btnText}>Buy Now</span>
+            <span className={styles.btnText}> <Link to="https://hens-co-egg.vercel.app/"> Stores </Link> </span>
             <div className={styles.btnHover}></div>
             <div className={styles.btnSparkle}></div>
           </button>
