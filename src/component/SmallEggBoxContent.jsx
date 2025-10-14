@@ -41,7 +41,7 @@ const SmallEggBoxContent = () => {
           <div className={styles.heroText}>
             <h1 className={styles.title}>
               <span className={styles.titleMain}>The Hen's Company</span>
-              <span className={styles.titleSub}>Organic 6-Egg Box</span>
+              <span className={styles.titleSub}> 6-Egg Box</span>
             </h1>
             <p className={styles.subtitle}>
               Discover nature’s pure goodness in every bite. Our{" "}
@@ -54,7 +54,7 @@ const SmallEggBoxContent = () => {
           <div className={styles.mainImageContainer}>
             <img src={eggBox} alt="6-Egg Organic Box" className={styles.mainImage} />
             <div className={styles.floatingBadge}>
-              <span>🥚 6 Organic Eggs</span>
+              <span>🥚 6  Eggs</span>
             </div>
           </div>
         </div>

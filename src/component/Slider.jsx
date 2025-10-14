@@ -41,7 +41,7 @@ const Slider = ({ renderParticles }) => {
       imgAlt: "Free Range",
       title: "Box of 6 Eggs",
       description: "Fresh free-range eggs with orange yolks",
-      link: "/Eggs", // ✅ route to navigate
+      link: "/Egg", // ✅ route to navigate
     },
   ];
 
