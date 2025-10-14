@@ -17,7 +17,7 @@ import BoxEgg from './pages/Boxegg'
 import ScrollToTop from './component/ScrollToTop'
  
 import SmallEggBox from './pages/SmallBoxEgg'
-// import NotFound from './pages/NotFound' // Optional 404 page
+ 
 
 function App() {
   return (
