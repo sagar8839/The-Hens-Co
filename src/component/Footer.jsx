@@ -109,7 +109,12 @@ const Footer = () => {
           </div>
           
           <button className={styles.btn}>
-            <span className={styles.btnText}> <Link to="https://hens-co-egg.vercel.app/"> Stores </Link> </span>
+            <span className={styles.btnText}> <Link to="https://hens-co-egg.vercel.app/"> Stores </Link>
+            
+            
+            
+            
+             </span>
             <div className={styles.btnHover}></div>
             <div className={styles.btnSparkle}></div>
           </button>
@@ -121,9 +126,9 @@ const Footer = () => {
         <div className={styles.bottomContent}>
           <p className={styles.copyright}>© {new Date().getFullYear()} The Hens Co. All rights reserved.</p>
           <div className={styles.legalLinks}>
-            <a href="#" className={styles.legalLink}>Privacy Policy</a>
+            <a href="#" className={styles.legalLink}> <Link to="/privacy"> Privacy Policy </Link> </a>
             <span className={styles.separator}>|</span>
-            <a href="#" className={styles.legalLink}>Terms of Use</a>
+            <a href="#" className={styles.legalLink}> <Link to="/terms-conditon"> Terms & Conditions </Link> </a>
           </div>
           <p className={styles.credit}>Crafted with ❤️ by   Sagar Gupta  </p>
         </div>

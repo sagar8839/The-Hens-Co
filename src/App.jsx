@@ -17,6 +17,8 @@ import BoxEgg from './pages/Boxegg'
 import ScrollToTop from './component/ScrollToTop'
  
 import SmallEggBox from './pages/SmallBoxEgg'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
  
 
 function App() {
@@ -48,6 +50,9 @@ function App() {
 
         <Route path='/Egg' element={<SmallEggBox/>} />
 
+      <Route path = '/privacy' element={<Privacy/>} />
+
+        <Route path = '/terms-conditon' element={<Terms/>} />
       
 
         

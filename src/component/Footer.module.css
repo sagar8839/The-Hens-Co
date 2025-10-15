@@ -252,6 +252,21 @@
     opacity: 1;
     left: -20px;
 }
+.linkItem a {
+  text-decoration: none;          /* Remove underline */
+  color: inherit;                 /* Match parent text color */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.linkItem a:hover {
+  color: #ff6b01;                 /* Orange hover color (matches your theme) */
+}
+
+.linkItem a:active {
+  color: #ff944d;                 /* Slightly lighter orange when clicked */
+}
+
 
 /* Right Section */
 .right {
@@ -430,8 +445,10 @@
 
 .legalLinks {
     display: flex;
+     justify-content: center;
     align-items: center;
     gap: 10px;
+      margin-top: 20px;
 }
 
 .legalLink {
