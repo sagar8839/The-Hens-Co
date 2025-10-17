@@ -11,8 +11,8 @@ const Locator = () => {
       <div className={styles.content}>
       
         <h2>store locator</h2>
-        <p>Find Happy Egg Products Near You!</p>
-         <Link to = "https://hens-co-egg.vercel.app/"   target="_blank" > <button className={styles.btn}>Find Happy Egg Near Me</button> </Link>
+        <p>Find The Hens Co. Eggs Near You!</p>
+         <Link to = "https://hens-co-egg.vercel.app/"   target="_blank" > <button className={styles.btn}>Find  The Hens Co. Egg Near Me</button> </Link>
       </div>
 
     
