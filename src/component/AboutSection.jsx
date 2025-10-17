@@ -1,5 +1,5 @@
 import styles from './aboutsection.module.css';
-import familyImage from '../../public/images/family.webp'; 
+import familyImage from '../../public/images/family.png'; 
 import chickenImage from '../../public/images/vbhen.png'; 
 import eggImage from '../../public/images/white.webp'; 
 
