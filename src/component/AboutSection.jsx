@@ -1,6 +1,6 @@
 import styles from './aboutsection.module.css';
 import familyImage from '../../public/images/family.webp'; 
-import chickenImage from '../../public/images/hen.png'; 
+import chickenImage from '../../public/images/vbhen.png'; 
 import eggImage from '../../public/images/white.webp'; 
 
 const AboutSection = () => {
