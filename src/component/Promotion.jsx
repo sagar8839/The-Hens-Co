@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./promotion.module.css";
+import { Link } from "react-router-dom";
 
 const AnimatedCounter = ({ end, duration = 2000, suffix = "" }) => {
   const [count, setCount] = React.useState(0);
@@ -58,7 +59,7 @@ const Promotion = () => {
             orange yolks and are produced using sustainable farming methods that
             prioritize animal welfare and environmental responsibility.
           </p>
-          <button className={styles.btn}>Our Farms</button>
+          <button className={styles.btn}> <Link to ="/our-farms"> Our Farms </Link> </button>
         </div>
 
         <div className={styles.images}>
